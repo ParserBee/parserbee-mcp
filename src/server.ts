@@ -51,5 +51,57 @@ export function createServer(api: ParserBeeApi): McpServer {
     },
   );
 
+  server.registerTool(
+    "list_templates",
+    {
+      title: "List Parser Templates",
+      description: "List the Parser Templates in the ParserBee account (ID, name, description and fields). Use an ID with extract_document.",
+      annotations: { readOnlyHint: true },
+    },
+    async () => run(async () => (await api.request<{ items: unknown[] }>("GET", "/api/v1/templates")).items),
+  );
+
+  server.registerTool(
+    "get_template",
+    {
+      title: "Get a Parser Template",
+      description: "Get one Parser Template with all of its fields.",
+      inputSchema: { template_id: z.string().min(1).describe("ID of the Parser Template") },
+      annotations: { readOnlyHint: true },
+    },
+    async ({ template_id }) => run(() => api.request("GET", `/api/v1/templates/${encodeURIComponent(template_id)}`)),
+  );
+
+  server.registerTool(
+    "get_credits",
+    {
+      title: "Check page credits",
+      description: "Get the ParserBee page credit balance, plan and subscription status.",
+      annotations: { readOnlyHint: true },
+    },
+    async () => run(() => api.request("GET", "/api/v1/credits")),
+  );
+
+  server.registerTool(
+    "list_recent_extractions",
+    {
+      title: "List recent extractions",
+      description: "List the last 10 extraction requests (status, file name, template, time).",
+      annotations: { readOnlyHint: true },
+    },
+    async () => run(async () => (await api.request<{ items: unknown[] }>("GET", "/api/v1/activity")).items),
+  );
+
+  server.registerTool(
+    "get_extraction",
+    {
+      title: "Get an extraction",
+      description: "Get one extraction request, including the extracted data.",
+      inputSchema: { request_id: z.string().min(1).describe("ID of the extraction request") },
+      annotations: { readOnlyHint: true },
+    },
+    async ({ request_id }) => run(() => api.request("GET", `/api/v1/activity/${encodeURIComponent(request_id)}`)),
+  );
+
   return server;
 }
