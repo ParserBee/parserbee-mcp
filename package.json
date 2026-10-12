@@ -1,0 +1,45 @@
+{
+  "name": "parserbee-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for ParserBee: extract structured data from invoices, receipts and other documents from any MCP client",
+  "license": "MIT",
+  "author": "ParserBee <support@parserbee.com>",
+  "homepage": "https://parserbee.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ParserBee/parserbee-mcp.git"
+  },
+  "keywords": [
+    "mcp",
+    "model context protocol",
+    "parserbee",
+    "ocr",
+    "invoice",
+    "document extraction"
+  ],
+  "type": "module",
+  "bin": {
+    "parserbee-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "prepare": "npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.1",
+    "zod": "^4.6.6"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43",
+    "typescript": "^5.9.3",
+    "vitest": "^2.1.9"
+  }
+}
