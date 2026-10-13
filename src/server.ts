@@ -2,7 +2,7 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 import { ParserBeeApi, ParserBeeApiError } from "./api.js";
 
-export const VERSION = "0.1.0";
+export const VERSION = "0.1.1";
 
 type ToolResult = { content: { type: "text"; text: string }[]; isError?: boolean };
 

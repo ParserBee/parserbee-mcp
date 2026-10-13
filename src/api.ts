@@ -42,7 +42,7 @@ export class ParserBeeApi {
     const response = await this.fetchImpl(`${this.baseUrl}${path}`, {
       method,
       body,
-      headers: { "x-api-key": this.options.apiKey, "User-Agent": "parserbee-mcp/0.1.0", Accept: "application/json", ...headers },
+      headers: { "x-api-key": this.options.apiKey, "User-Agent": "parserbee-mcp/0.1.1", Accept: "application/json", ...headers },
       signal: AbortSignal.timeout(120_000),
     });
     let data: Record<string, unknown> = {};
