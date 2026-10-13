@@ -38,7 +38,7 @@ Open **Settings > Developer > Edit Config** and add:
   "mcpServers": {
     "parserbee": {
       "command": "npx",
-      "args": ["-y", "github:ParserBee/parserbee-mcp"],
+      "args": ["-y", "parserbee-mcp"],
       "env": { "PARSERBEE_API_KEY": "pk_your_api_key" }
     }
   }
@@ -50,7 +50,7 @@ Restart Claude Desktop.
 ### Claude Code
 
 ```bash
-claude mcp add parserbee -e PARSERBEE_API_KEY=pk_your_api_key -- npx -y github:ParserBee/parserbee-mcp
+claude mcp add parserbee -e PARSERBEE_API_KEY=pk_your_api_key -- npx -y parserbee-mcp
 ```
 
 ### Cursor
@@ -66,7 +66,7 @@ Add to `.vscode/mcp.json`:
   "servers": {
     "parserbee": {
       "command": "npx",
-      "args": ["-y", "github:ParserBee/parserbee-mcp"],
+      "args": ["-y", "parserbee-mcp"],
       "env": { "PARSERBEE_API_KEY": "pk_your_api_key" }
     }
   }
