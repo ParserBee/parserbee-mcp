@@ -50,8 +50,10 @@ Restart Claude Desktop.
 ### Claude Code
 
 ```bash
-claude mcp add parserbee -e PARSERBEE_API_KEY=pk_your_api_key -- npx -y parserbee-mcp
+claude mcp add parserbee --scope user -e PARSERBEE_API_KEY=pk_your_api_key -- npx -y parserbee-mcp
 ```
+
+`--scope user` makes ParserBee available in every folder. Without it, Claude Code adds the server only to the folder you run the command in. Start a new Claude Code session afterwards, then check it with `claude mcp list`.
 
 ### Cursor
 
