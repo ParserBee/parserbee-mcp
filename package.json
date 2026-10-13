@@ -2,6 +2,7 @@
   "name": "parserbee-mcp",
   "version": "0.1.0",
   "description": "MCP server for ParserBee: extract structured data from invoices, receipts and other documents from any MCP client",
+  "mcpName": "io.github.ParserBee/parserbee-mcp",
   "license": "MIT",
   "author": "ParserBee <support@parserbee.com>",
   "homepage": "https://parserbee.com",

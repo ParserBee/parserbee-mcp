@@ -1,0 +1,30 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
+  "name": "io.github.ParserBee/parserbee-mcp",
+  "description": "Extract structured data from invoices, receipts and other documents with ParserBee.",
+  "repository": {
+    "url": "https://github.com/ParserBee/parserbee-mcp",
+    "source": "github"
+  },
+  "websiteUrl": "https://parserbee.com",
+  "version": "0.1.0",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "parserbee-mcp",
+      "version": "0.1.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "PARSERBEE_API_KEY",
+          "description": "Your ParserBee API key, from Settings in the dashboard",
+          "isRequired": true,
+          "isSecret": true,
+          "format": "string"
+        }
+      ]
+    }
+  ]
+}
