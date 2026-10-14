@@ -1,0 +1,28 @@
+name: Publish to the MCP Registry
+
+# Runs after "Publish to npm" succeeds, because the Registry checks that the npm
+# version in server.json exists. Can also be started by hand from the Actions tab.
+on:
+  workflow_run:
+    workflows: ["Publish to npm"]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  # GitHub OIDC sign-in: the Registry grants io.github.<repository owner>/*,
+  # so no personal org membership check is needed
+  id-token: write
+  contents: read
+
+jobs:
+  publish:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+      - name: Install mcp-publisher
+        run: curl -fsSL "https://github.com/modelcontextprotocol/registry/releases/download/v1.8.1/mcp-publisher_linux_amd64.tar.gz" | tar xz mcp-publisher
+      - run: ./mcp-publisher login github-oidc
+      - run: ./mcp-publisher publish
