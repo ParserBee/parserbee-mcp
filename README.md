@@ -136,3 +136,7 @@ npm run build
 ## License
 
 MIT
+
+
+
+[![M8ven Score](https://m8ven.ai/badge/mcp/parserbee-parserbee-mcp-1ov29y?v=362c411a0bb297184659dee8f46275db)](https://m8ven.ai/mcp/parserbee-parserbee-mcp-1ov29y?s=readme)
