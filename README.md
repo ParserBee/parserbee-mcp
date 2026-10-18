@@ -1,5 +1,7 @@
 # ParserBee MCP server
 
+[![parserbee-mcp MCP server – quality and maintenance score on Glama](https://glama.ai/mcp/servers/ParserBee/parserbee-mcp/badges/score.svg)](https://glama.ai/mcp/servers/ParserBee/parserbee-mcp)
+
 A [Model Context Protocol](https://modelcontextprotocol.io) server for [ParserBee](https://parserbee.com). It lets an AI assistant extract structured data from invoices, receipts, purchase orders, bank statements and other documents, using your Parser Templates.
 
 Ask your assistant things like:
